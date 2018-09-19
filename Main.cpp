@@ -26,7 +26,9 @@ int main()
 
 	//create and instance of our critter class
 	Critter myCritter;
-
+	myCritter.Setup("graphics/chicken.png", 10);
+	Critter secondCritter;
+	secondCritter.Setup("graphics/sloth.png", 5);
 	//setup game font
 	sf::Font gameFont;
 	gameFont.loadFromFile("fonts/mainfont.ttf");
@@ -56,6 +58,7 @@ int main()
 			
 				//process inut on critter
 				myCritter.Input(event);
+				secondCritter.Input(event);
 			
 			
 
@@ -75,6 +78,8 @@ int main()
 		sf::Time frameTime = gameClock.restart();
 		score += myCritter.GetPendingScore();
 		myCritter.ClearPendingScore();
+		score += secondCritter.GetPendingScore();
+		secondCritter.ClearPendingScore();
 		scoreText.setString("Score: " + std::to_string(score));
 		//end update
 		//
@@ -89,6 +94,7 @@ int main()
 		//draw everything
 
 		myCritter.Draw(gameWindow);
+		secondCritter.Draw(gameWindow);
 		gameWindow.draw(scoreText);
 		//display the window contents on screen
 		gameWindow.display();
