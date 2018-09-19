@@ -10,6 +10,7 @@ Critter::Critter()
 	,m_alive(true)
 	,m_deathSound()
 	,m_deathBuffer()
+	,m_pendingScore(0)
 {
 	//set up sprite
 	m_texture.loadFromFile("graphics/chicken.png");
@@ -37,6 +38,8 @@ void Critter::Draw(sf::RenderTarget& _target)
 
 }
 
+//input
+
 void Critter::Input(sf::Event _gameEvent)
 {
 	if (m_alive)
@@ -54,7 +57,20 @@ void Critter::Input(sf::Event _gameEvent)
 
 				//play the deathsound
 				m_deathSound.play();
+
+				//add to pending score
+				m_pendingScore += 1;
 			}
 		}
 	}
+}
+
+int Critter::GetPendingScore()
+{
+	return m_pendingScore;
+};
+
+void Critter::ClearPendingScore() 
+{
+	m_pendingScore = 0;
 }
