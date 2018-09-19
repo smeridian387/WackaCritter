@@ -1,5 +1,7 @@
 //includes
 #include <SFML/Graphics.hpp>
+#include <cstdlib> //gives access to random
+#include <ctime> // gives access
 //project includes
 #include "Critter.h"
 
@@ -17,6 +19,9 @@ int main()
 
 	//timer functionality
 	sf::Clock gameClock;
+
+	//seed our random number generator
+	srand(time(NULL));
 
 	//create and instance of our critter class
 	Critter myCritter;

@@ -21,7 +21,7 @@ private:
 	
 	sf::Sprite m_sprite;
 	sf::Texture m_texture;
-
+	
 
 	//End data----------------------------------------
 }; //end Critter class

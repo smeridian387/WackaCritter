@@ -1,6 +1,7 @@
 //includes
 //project includes
 #include "Critter.h"
+#include <cstdlib> //needed for randomness
 
 Critter::Critter()
 //initilisation
@@ -10,7 +11,8 @@ Critter::Critter()
 	//set up sprite
 	m_texture.loadFromFile("graphics/chicken.png");
 	m_sprite.setTexture(m_texture);
-	m_sprite.setPosition(300, 300);
+	m_sprite.setPosition(rand() % sf::VideoMode::getDesktopMode().width, 
+						 rand() % sf::VideoMode::getDesktopMode().height);
 }
 
 
